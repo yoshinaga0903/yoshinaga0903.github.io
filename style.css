@@ -1,0 +1,242 @@
+/* ===== 基本設定 ===== */
+:root {
+  --bg: #0f1724;
+  --bg-soft: #17212f;
+  --card: #1d2939;
+  --text: #e8edf3;
+  --muted: #9aa8b8;
+  --accent: #4fd1c5;
+  --accent-2: #f6ad55;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Noto Sans JP", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ===== ナビゲーション ===== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 6vw;
+  background: rgba(15, 23, 36, 0.8);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nav-logo {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
+.nav nav a {
+  margin-left: 24px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.nav nav a:hover { color: var(--accent); }
+
+/* ===== ヒーロー ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 80px;
+  overflow: hidden;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 6vw;
+}
+.hero-text { max-width: 620px; }
+
+.hero-label {
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--accent);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+.hero h1 span {
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.45em;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.hero-text { color: var(--muted); margin-bottom: 36px; }
+
+/* 背景の格子模様 */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(79, 209, 197, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79, 209, 197, 0.08) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at 75% 50%, black 0%, transparent 65%);
+  -webkit-mask-image: radial-gradient(circle at 75% 50%, black 0%, transparent 65%);
+}
+
+/* ===== ボタン ===== */
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 700;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(79, 209, 197, 0.35);
+}
+
+/* ===== セクション共通 ===== */
+.section {
+  padding: 96px 6vw;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+.section-title span {
+  font-size: 1rem;
+  color: var(--accent-2);
+}
+
+/* ===== About ===== */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.about-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+.about-card dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px 20px;
+}
+.about-card dt { color: var(--accent); font-weight: 500; }
+
+.about-text { color: var(--muted); }
+
+/* ===== Works ===== */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 28px;
+  border: 1px solid transparent;
+  transition: transform 0.25s, border-color 0.25s;
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+}
+
+.card-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 2px 12px;
+  border-radius: 999px;
+  background: rgba(246, 173, 85, 0.15);
+  color: var(--accent-2);
+  margin-bottom: 14px;
+}
+
+.card h3 { font-size: 1.15rem; margin-bottom: 10px; }
+.card p { color: var(--muted); font-size: 0.92rem; }
+
+/* ===== Skills ===== */
+.skills { list-style: none; max-width: 640px; }
+.skills li { margin-bottom: 22px; }
+.skill-name { display: block; margin-bottom: 6px; }
+
+.bar {
+  display: block;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  overflow: hidden;
+}
+.bar i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+/* ===== Contact ===== */
+.contact {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 48px;
+  text-align: center;
+}
+.contact p { color: var(--muted); margin-bottom: 24px; }
+
+/* ===== フッター ===== */
+.footer {
+  text-align: center;
+  padding: 32px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ===== スマホ対応 ===== */
+@media (max-width: 720px) {
+  .nav nav a { margin-left: 14px; font-size: 0.8rem; }
+  .about { grid-template-columns: 1fr; }
+  .contact { padding: 32px 20px; }
+}
